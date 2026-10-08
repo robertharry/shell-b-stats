@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shell B – Season stats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f1;--ink:#14262b;--mute:#5d7076;--line:#c9d6d2;--panel:#fff;--win:#1f7a5c;--loss:#c4533b;--draw:#9aa9a5}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1c20;--ink:#e6efec;--mute:#93a7a3;--line:#2a3d42;--panel:#16272c;--win:#3fb48c;--loss:#e0735a;--draw:#6b7f7b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Source Sans 3",system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,.num{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:.01em}
+h1{font-size:44px;line-height:1;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 24px}
+.summary{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.summary div{min-width:110px}
+.summary .num{font-size:52px;line-height:1}
+.summary small{color:var(--mute);display:block}
+.num .w{color:var(--win)}.num .l{color:var(--loss)}
+nav{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:20px}
+nav button{font:600 16px "Source Sans 3",sans-serif;background:none;border:0;color:var(--mute);padding:10px 16px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+nav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--win)}
+button:focus-visible{outline:3px solid var(--win);outline-offset:2px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--mute);font-size:14px}
+th:first-child,td:first-child{text-align:left}
+td:first-child{font-weight:600}
+.bar{display:inline-block;width:70px;height:8px;background:var(--line);border-radius:4px;margin-right:8px;vertical-align:middle;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--win)}
+.dim{color:var(--mute)}
+.match{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:12px}
+.mh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.mh h2{font-size:24px;margin:0}
+.res{font-size:28px}
+.res.W{color:var(--win)}.res.L{color:var(--loss)}.res.D{color:var(--draw)}
+.strip{display:flex;gap:10px;flex-wrap:wrap}
+.fx{display:flex;gap:2px}
+.t{width:16px;height:22px;border-radius:2px;background:var(--win)}
+.t.x{background:var(--loss)}
+.note{color:var(--mute);font-size:14px;margin-top:10px}
+#err{color:var(--loss);font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>Shell B</h1>
+<p class="sub">Stockport &amp; District Badminton League · Division 1</p>
+<div id="err"></div>
+<div class="summary" id="summary"></div>
+<nav role="tablist" aria-label="Views">
+  <button role="tab" aria-selected="true" data-t="players">Players</button>
+  <button role="tab" aria-selected="false" data-t="pairs">Pairs</button>
+  <button role="tab" aria-selected="false" data-t="matches">Matches</button>
+</nav>
+<section id="players"></section>
+<section id="pairs" hidden></section>
+<section id="matches" hidden></section>
+</main>
+<script>
+const FX=[["gents",0,1],["ladies",0,1],["gents",0,2],["ladies",0,2],["gents",1,2],["ladies",1,2],["mixed",0],["mixed",1],["mixed",2]];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function load(f){for(const b of["data/","../data/"]){try{const r=await fetch(b+f);if(r.ok)return r.json()}catch{}}throw new Error("Could not load "+f+". Serve the repo root with a local web server (e.g. npx serve .) and open /site/.")}
+const blank=()=>({w:0,l:0,pf:0,pa:0});
+const add=(s,g)=>{g.us>g.them?s.w++:s.l++;s.pf+=g.us;s.pa+=g.them};
+const pct=s=>s.w+s.l?s.w/(s.w+s.l):0;
+const wl=s=>s.w+s.l?`${s.w}-${s.l}`:"–";
+const bar=s=>`<span class="bar"><i style="width:${Math.round(pct(s)*100)}%"></i></span>${s.w+s.l?Math.round(pct(s)*100)+"%":"–"}`;
+const diff=s=>{const d=s.pf-s.pa;return(d>0?"+":"")+d};
+
+function expand(matches){
+  const out=[];
+  for(const m of matches){
+    const L=m.lineup.ladies,G=m.lineup.gents;
+    m.games.forEach((fx,i)=>{
+      const[d,a,b]=FX[i];
+      const pair=d==="gents"?[G[a],G[b]]:d==="ladies"?[L[a],L[b]]:[L[a],G[a]];
+      fx.forEach(([us,them])=>out.push({m,i,d,pair,us,them}));
+    });
+  }
+  return out;
+}
+
+function render(matches,P){
+  const games=expand(matches),name=id=>P[id]?.name??id;
+  const total=blank(),rec={W:0,L:0,D:0};
+  games.forEach(g=>add(total,g));
+  const byMatch=new Map(matches.map(m=>[m,blank()]));
+  games.forEach(g=>add(byMatch.get(g.m),g));
+  byMatch.forEach(s=>rec[s.w>s.l?"W":s.w<s.l?"L":"D"]++);
+
+  $("#summary").innerHTML=
+    `<div><span class="num"><span class="w">${rec.W}</span>-<span class="l">${rec.L}</span>${rec.D?`-${rec.D}`:""}</span><small>Matches won-lost${rec.D?"-drawn":""}</small></div>`+
+    `<div><span class="num"><span class="w">${total.w}</span>-<span class="l">${total.l}</span></span><small>Games won-lost</small></div>`+
+    `<div><span class="num">${diff(total)}</span><small>Points difference</small></div>`;
+
+  // players
+  const pl=new Map();
+  const slot=id=>{if(!pl.has(id))pl.set(id,{all:blank(),gents:blank(),ladies:blank(),mixed:blank(),ms:new Set()});return pl.get(id)};
+  games.forEach(g=>g.pair.forEach(id=>{const p=slot(id);add(p.all,g);add(p[g.d],g);p.ms.add(g.m.id)}));
+  const rows=[...pl].sort((a,b)=>pct(b[1].all)-pct(a[1].all)||b[1].all.w-a[1].all.w);
+  $("#players").innerHTML=`<div class="scroll"><table><thead><tr><th>Player</th><th>Matches</th><th>Games</th><th>Win %</th><th>Points +/-</th><th>Gents</th><th>Ladies</th><th>Mixed</th></tr></thead><tbody>`+
+    rows.map(([id,p])=>`<tr><td>${esc(name(id))}</td><td>${p.ms.size}</td><td>${wl(p.all)}</td><td>${bar(p.all)}</td><td>${diff(p.all)}</td><td>${wl(p.gents)}</td><td>${wl(p.ladies)}</td><td>${wl(p.mixed)}</td></tr>`).join("")+
+    `</tbody></table></div><p class="note">Games won-lost across all fixtures. Gents/Ladies/Mixed columns show games won-lost in that discipline.</p>`;
+
+  // pairs
+  const pr=new Map();
+  games.forEach(g=>{const k=g.d+"|"+[...g.pair].sort().join("|");
+    if(!pr.has(k))pr.set(k,{d:g.d,ids:[...g.pair].sort(),s:blank(),ms:new Set()});
+    const p=pr.get(k);add(p.s,g);p.ms.add(g.m.id)});
+  const prRows=[...pr.values()].sort((a,b)=>pct(b.s)-pct(a.s)||b.s.w+b.s.l-(a.s.w+a.s.l));
+  $("#pairs").innerHTML=`<div class="scroll"><table><thead><tr><th>Pair</th><th>Type</th><th>Matches</th><th>Games</th><th>Win %</th><th>Points +/-</th></tr></thead><tbody>`+
+    prRows.map(p=>`<tr><td>${p.ids.map(i=>esc(name(i))).join(" &amp; ")}</td><td class="dim">${p.d}</td><td>${p.ms.size}</td><td>${wl(p.s)}</td><td>${bar(p.s)}</td><td>${diff(p.s)}</td></tr>`).join("")+
+    `</tbody></table></div>`;
+
+  // matches
+  $("#matches").innerHTML=[...matches].sort((a,b)=>b.date.localeCompare(a.date)).map(m=>{
+    const s=byMatch.get(m),r=s.w>s.l?"W":s.w<s.l?"L":"D";
+    const date=new Date(m.date).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+    const strips=FX.map((_,i)=>`<span class="fx">`+games.filter(g=>g.m===m&&g.i===i).map(g=>
+      `<span class="t${g.us>g.them?"":" x"}" title="${esc(g.d+": "+g.pair.map(name).join(" & ")+" "+g.us+"-"+g.them)}"></span>`).join("")+`</span>`).join("");
+    return `<article class="match"><div class="mh"><h2>${m.home?"vs":"at"} ${esc(m.opponent)}</h2><span class="res ${r} num">${s.w}-${s.l}</span></div><div class="strip">${strips}</div><div class="note">${date} · ${m.home?"Home":"Away"} · each block is one game (green won, red lost), grouped by fixture in card order</div></article>`}).join("");
+}
+
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  ["players","pairs","matches"].forEach(id=>$("#"+id).hidden=id!==b.dataset.t);
+});
+Promise.all([load("matches.json"),load("players.json")])
+  .then(([m,p])=>render(m.matches,p))
+  .catch(e=>$("#err").textContent=e.message);
+</script>
+</body>
+</html>

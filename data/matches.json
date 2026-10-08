@@ -1,0 +1,350 @@
+{
+  "_comment": "Scores are always [us, them] (Shell B first), regardless of home/away on the card. games[] is in card order: G1&2, L1&2, G1&3, L1&3, G2&3, L2&3, Mixed1, Mixed2, Mixed3. Pairs are derived from lineup (playing order): gents/ladies pair by position; mixed N = ladies[N-1] + gents[N-1].",
+  "matches": [
+    {
+      "id": "2026-09-17-featherforce-b",
+      "date": "2026-09-17",
+      "home": false,
+      "opponent": "Featherforce B",
+      "reported": {
+        "us": 5,
+        "them": 13
+      },
+      "lineup": {
+        "ladies": [
+          "amy-magee",
+          "michele-parkinson",
+          "nicola-hill"
+        ],
+        "gents": [
+          "rob-harrison",
+          "oliver-bramley",
+          "darren-gilberthorpe"
+        ]
+      },
+      "games": [
+        [
+          [
+            22,
+            20
+          ],
+          [
+            16,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            18
+          ],
+          [
+            16,
+            21
+          ]
+        ],
+        [
+          [
+            24,
+            26
+          ],
+          [
+            12,
+            21
+          ]
+        ],
+        [
+          [
+            17,
+            21
+          ],
+          [
+            4,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            18
+          ],
+          [
+            11,
+            21
+          ]
+        ],
+        [
+          [
+            23,
+            21
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            14,
+            21
+          ],
+          [
+            15,
+            21
+          ]
+        ],
+        [
+          [
+            18,
+            21
+          ],
+          [
+            11,
+            21
+          ]
+        ],
+        [
+          [
+            17,
+            21
+          ],
+          [
+            20,
+            22
+          ]
+        ]
+      ],
+      "flags": []
+    },
+    {
+      "id": "2026-09-29-macclesfield-a",
+      "date": "2026-09-29",
+      "home": true,
+      "opponent": "Macclesfield A",
+      "reported": {
+        "us": 12,
+        "them": 6
+      },
+      "lineup": {
+        "ladies": [
+          "michele-parkinson",
+          "amy-magee",
+          "hannah-stringer"
+        ],
+        "gents": [
+          "oliver-bramley",
+          "rob-harrison",
+          "darren-gilberthorpe"
+        ]
+      },
+      "games": [
+        [
+          [
+            18,
+            21
+          ],
+          [
+            17,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            14
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            17,
+            21
+          ],
+          [
+            19,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            15
+          ],
+          [
+            21,
+            13
+          ]
+        ],
+        [
+          [
+            21,
+            17
+          ],
+          [
+            12,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            14
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            21,
+            12
+          ],
+          [
+            21,
+            17
+          ]
+        ],
+        [
+          [
+            21,
+            16
+          ],
+          [
+            21,
+            13
+          ]
+        ],
+        [
+          [
+            13,
+            21
+          ],
+          [
+            21,
+            15
+          ]
+        ]
+      ],
+      "flags": []
+    },
+    {
+      "id": "2026-10-04-syddal-park-b",
+      "date": "2026-10-04",
+      "home": false,
+      "opponent": "Syddal Park B",
+      "reported": {
+        "us": 12,
+        "them": 6
+      },
+      "lineup": {
+        "ladies": [
+          "amy-magee",
+          "michele-parkinson",
+          "hannah-stringer"
+        ],
+        "gents": [
+          "rob-harrison",
+          "darren-gilberthorpe",
+          "arif-mollah"
+        ]
+      },
+      "games": [
+        [
+          [
+            21,
+            18
+          ],
+          [
+            21,
+            18
+          ]
+        ],
+        [
+          [
+            12,
+            21
+          ],
+          [
+            13,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            12
+          ],
+          [
+            21,
+            18
+          ]
+        ],
+        [
+          [
+            21,
+            19
+          ],
+          [
+            11,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            12
+          ],
+          [
+            21,
+            16
+          ]
+        ],
+        [
+          [
+            21,
+            23
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            21,
+            19
+          ],
+          [
+            22,
+            20
+          ]
+        ],
+        [
+          [
+            21,
+            11
+          ],
+          [
+            20,
+            22
+          ]
+        ],
+        [
+          [
+            21,
+            19
+          ],
+          [
+            19,
+            21
+          ]
+        ]
+      ],
+      "flags": []
+    }
+  ]
+}
