@@ -1,0 +1,16 @@
+{
+  "updated": "2026-10-12T12:00:00Z",
+  "source": "https://stockport-badminton.co.uk/tables/All",
+  "divisions": {
+    "Division 1": [
+      { "team": "Parrswood A", "p": 0, "w": 0, "l": 0, "avg": 0 },
+      { "team": "Featherforce B", "p": 3, "w": 39, "l": 15, "avg": 13 },
+      { "team": "Shell B", "p": 3, "w": 29, "l": 25, "avg": 9.7 },
+      { "team": "Macclesfield A", "p": 2, "w": 23, "l": 13, "avg": 11.5 },
+      { "team": "Remnants A", "p": 2, "w": 18, "l": 18, "avg": 9 },
+      { "team": "College Green B", "p": 1, "w": 15, "l": 3, "avg": 15 },
+      { "team": "Alderley Park B", "p": 3, "w": 13, "l": 41, "avg": 4.3 },
+      { "team": "Syddal Park B", "p": 2, "w": 7, "l": 29, "avg": 3.5 }
+    ]
+  }
+}

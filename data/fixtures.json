@@ -1,0 +1,21 @@
+{
+  "season": "2026-27",
+  "division": "Division 1",
+  "source": "https://stockport-badminton.co.uk/results/Division-1/club-Shell",
+  "fixtures": [
+    { "date": "2026-09-09", "home": true,  "opponent": "Macclesfield A" },
+    { "date": "2026-09-17", "home": false, "opponent": "Featherforce B", "map": "https://maps.app.goo.gl/xL85FF5QtPLFWjMm9" },
+    { "date": "2026-10-04", "home": false, "opponent": "Syddal Park B", "map": "https://maps.app.goo.gl/ax4pDDKhZBtLnKT87" },
+    { "date": "2026-10-21", "home": false, "opponent": "Alderley Park B", "map": "https://maps.app.goo.gl/jxYfweGPAcS1fEaH8" },
+    { "date": "2026-10-28", "home": true,  "opponent": "Remnants A" },
+    { "date": "2026-11-17", "home": false, "opponent": "Parrswood A", "map": "https://goo.gl/maps/3qRUW35DYRK2" },
+    { "date": "2026-12-02", "home": true,  "opponent": "Syddal Park B" },
+    { "date": "2027-01-13", "home": true,  "opponent": "Parrswood A" },
+    { "date": "2027-02-04", "home": false, "opponent": "College Green B", "map": "https://goo.gl/maps/8kJEDL7aW2NbM2vr8" },
+    { "date": "2027-03-08", "home": false, "opponent": "Macclesfield A", "map": "https://maps.app.goo.gl/ToXRk2voxNaUkwHn9" },
+    { "date": "2027-03-10", "home": true,  "opponent": "Featherforce B" },
+    { "date": "2027-03-31", "home": true,  "opponent": "College Green B" },
+    { "date": "2027-04-21", "home": true,  "opponent": "Alderley Park B" },
+    { "date": "2027-04-27", "home": false, "opponent": "Remnants A", "map": "https://maps.app.goo.gl/kLDp7d5pWtqiqCSD9" }
+  ]
+}

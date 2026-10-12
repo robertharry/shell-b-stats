@@ -1,10 +1,71 @@
 {
-  "amy-magee":          { "name": "Amy Magee",          "gender": "F", "aliases": ["A. Magee", "Amy Magee"] },
-  "michele-parkinson":  { "name": "Michele Parkinson",  "gender": "F", "aliases": ["Michele Parkinson", "Michelle Parkinson", "N. Parkinson"] },
-  "nicola-hill":        { "name": "Nicola Hill",        "gender": "F", "aliases": ["Nicola Hill"] },
-  "hannah-stringer":    { "name": "Hannah Stringer",    "gender": "F", "aliases": ["Hannah Stringer", "U. Stringer"] },
-  "rob-harrison":       { "name": "Rob Harrison",       "gender": "M", "aliases": ["Rob Harrison", "R. Harrison"] },
-  "oliver-bramley":     { "name": "Oliver Bramley",     "gender": "M", "aliases": ["Oliver Bramley", "O. Bramley"] },
-  "darren-gilberthorpe":{ "name": "Darren Gilberthorpe","gender": "M", "aliases": ["Darren Gilberthorpe", "D. Gilberthorpe"] },
-  "arif-mollah":        { "name": "Arif Mollah",        "gender": "M", "aliases": ["Arif Mollah"] }
+  "amy-magee": {
+    "name": "Amy Magee",
+    "gender": "F",
+    "aliases": [
+      "A. Magee",
+      "Amy Magee"
+    ],
+    "core": true
+  },
+  "michele-parkinson": {
+    "name": "Michele Parkinson",
+    "gender": "F",
+    "aliases": [
+      "Michele Parkinson",
+      "Michelle Parkinson",
+      "N. Parkinson"
+    ],
+    "core": true
+  },
+  "nicola-hill": {
+    "name": "Nicola Hill",
+    "gender": "F",
+    "aliases": [
+      "Nicola Hill"
+    ],
+    "core": true
+  },
+  "hannah-stringer": {
+    "name": "Hannah Stringer",
+    "gender": "F",
+    "aliases": [
+      "Hannah Stringer",
+      "U. Stringer"
+    ]
+  },
+  "rob-harrison": {
+    "name": "Rob Harrison",
+    "gender": "M",
+    "aliases": [
+      "Rob Harrison",
+      "R. Harrison"
+    ],
+    "core": true
+  },
+  "oliver-bramley": {
+    "name": "Oliver Bramley",
+    "gender": "M",
+    "aliases": [
+      "Oliver Bramley",
+      "O. Bramley"
+    ],
+    "core": true
+  },
+  "darren-gilberthorpe": {
+    "name": "Darren Gilberthorpe",
+    "gender": "M",
+    "aliases": [
+      "Darren Gilberthorpe",
+      "D. Gilberthorpe"
+    ],
+    "core": true
+  },
+  "arif-mollah": {
+    "name": "Arif Mollah",
+    "gender": "M",
+    "aliases": [
+      "Arif Mollah"
+    ]
+  }
 }
