@@ -1,7 +1,6 @@
-// Usage: node tools/fetch-league.mjs [outfile]   (default data/league.json)
+// Usage: node tools/fetch-league.mjs <tables-url> <outfile>
 import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-const URL_ = "https://stockport-badminton.co.uk/tables/All";
 const txt = s => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 const num = s => Number(s) || 0;
 
@@ -19,10 +18,10 @@ export function parse(html) {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const res = await fetch(URL_, { headers: { "user-agent": "shell-b-stats (team stats site)" } });
+  const res = await fetch(process.argv[2], { headers: { "user-agent": "shell-b-stats (team stats site)" } });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const divisions = parse(await res.text());
-  writeFileSync(process.argv[2] ?? "data/league.json",
-    JSON.stringify({ updated: new Date().toISOString(), source: URL_, divisions }, null, 2));
+  writeFileSync(process.argv[3],
+    JSON.stringify({ updated: new Date().toISOString(), source: process.argv[2], divisions }, null, 2));
   console.log("league table written");
 }

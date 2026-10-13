@@ -1,0 +1,58 @@
+:root{--bg:#eef3f1;--ink:#14262b;--mute:#5d7076;--line:#c9d6d2;--panel:#fff;--win:#1f7a5c;--loss:#c4533b;--draw:#9aa9a5;--accent:#1f7a5c}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1c20;--ink:#e6efec;--mute:#93a7a3;--line:#2a3d42;--panel:#16272c;--win:#3fb48c;--loss:#e0735a;--draw:#6b7f7b;--accent:#3fb48c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Source Sans 3",system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,.num{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:.01em}
+h1{font-size:44px;line-height:1;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 24px}
+.summary{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.summary div{min-width:110px}
+.summary .num{font-size:52px;line-height:1}
+.summary small{color:var(--mute);display:block}
+.num .w{color:var(--win)}.num .l{color:var(--loss)}
+nav{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:20px}
+nav button{font:600 16px "Source Sans 3",sans-serif;background:none;border:0;color:var(--mute);padding:10px 16px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+nav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--accent)}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--mute);font-size:14px}
+th:first-child,td:first-child{text-align:left}
+td:first-child{font-weight:600}
+.bar{display:inline-block;width:70px;height:8px;background:var(--line);border-radius:4px;margin-right:8px;vertical-align:middle;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.dim{color:var(--mute)}
+.match{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:12px}
+.mh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.mh h2{font-size:24px;margin:0}
+.res{font-size:28px}
+.res.W{color:var(--win)}.res.L{color:var(--loss)}.res.D{color:var(--draw)}
+.strip{display:flex;gap:10px;flex-wrap:wrap}
+.fx{display:flex;gap:2px}
+.t{width:16px;height:22px;border-radius:2px;background:var(--win)}
+.t.x{background:var(--loss)}
+.note{color:var(--mute);font-size:14px;margin-top:10px}
+tr.hl td{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.rw{color:var(--win);font-weight:600}.rl{color:var(--loss);font-weight:600}
+a{color:var(--accent)}
+.pj{display:grid;grid-template-columns:120px 1fr 48px;gap:8px;align-items:center;margin:5px 0;font-size:15px}
+.pj.hl .nm{font-weight:600;color:var(--accent)}
+.pt{position:relative;height:14px;background:var(--line);border-radius:3px}
+.pt i{position:absolute;left:0;top:0;bottom:0;border-radius:3px}
+.pt .b{background:color-mix(in srgb,var(--accent) 35%,var(--line))}.pt .a{background:var(--accent)}
+.pt u{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--ink)}
+.pj .v{text-align:right;color:var(--mute)}
+.promo{margin-top:28px}.promo h2{font-size:28px;margin:0 0 6px}
+.tog{display:inline-flex;gap:8px;align-items:center;margin-bottom:12px;font-weight:600;cursor:pointer}
+#err{color:var(--loss);font-weight:600}
+
+html[data-theme=tameside]{--accent:#c2410c;--bg:#f7efe9;--ink:#2b1a14;--mute:#7a6258;--line:#dcc9bd}
+@media (prefers-color-scheme:dark){html[data-theme=tameside]{--accent:#f08a4b;--bg:#1f1410;--panel:#2a1b15;--ink:#f1e6df;--mute:#b59d92;--line:#4a3228}}
+.leagues{display:flex;flex-wrap:wrap;background:var(--panel);border-bottom:4px solid var(--accent)}
+.leagues a{padding:12px 20px;font-weight:600;text-decoration:none;color:var(--ink);border-bottom:4px solid transparent;margin-bottom:-4px}
+.leagues a[data-l=stockport]{--c:#1f7a5c}.leagues a[data-l=tameside]{--c:#c2410c}
+.leagues a:not([aria-current]){border-bottom-color:var(--c)}
+.leagues a[aria-current]{background:var(--c);color:#fff}
+[hidden]{display:none!important}

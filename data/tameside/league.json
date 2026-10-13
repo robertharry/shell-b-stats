@@ -1,0 +1,71 @@
+{
+  "updated": "2026-10-13T12:00:00Z",
+  "source": "https://tameside-badminton.co.uk/tables/All",
+  "divisions": {
+    "Division 1": [
+      {
+        "team": "College Green A",
+        "p": 4,
+        "w": 45,
+        "l": 27,
+        "avg": 11.3
+      },
+      {
+        "team": "Manchester Edgeley A",
+        "p": 3,
+        "w": 38,
+        "l": 16,
+        "avg": 12.7
+      },
+      {
+        "team": "GHAP B",
+        "p": 3,
+        "w": 28,
+        "l": 26,
+        "avg": 9.3
+      },
+      {
+        "team": "GHAP A",
+        "p": 2,
+        "w": 27,
+        "l": 9,
+        "avg": 13.5
+      },
+      {
+        "team": "Syddal Park A",
+        "p": 3,
+        "w": 23,
+        "l": 31,
+        "avg": 7.7
+      },
+      {
+        "team": "Shell A",
+        "p": 2,
+        "w": 19,
+        "l": 17,
+        "avg": 9.5
+      },
+      {
+        "team": "Manchester Edgeley B",
+        "p": 2,
+        "w": 15,
+        "l": 21,
+        "avg": 7.5
+      },
+      {
+        "team": "Hyde B",
+        "p": 4,
+        "w": 13,
+        "l": 59,
+        "avg": 3.3
+      },
+      {
+        "team": "Hyde A",
+        "p": 1,
+        "w": 8,
+        "l": 10,
+        "avg": 8
+      }
+    ]
+  }
+}

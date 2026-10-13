@@ -1,0 +1,87 @@
+{
+  "amy-magee": {
+    "name": "Amy Magee",
+    "gender": "F",
+    "aliases": [
+      "A. Magee",
+      "Amy Magee"
+    ]
+  },
+  "hannah-stringer": {
+    "name": "Hannah Stringer",
+    "gender": "F",
+    "aliases": [
+      "H. Stringer",
+      "Hannah Stringer"
+    ]
+  },
+  "michele-parkinson": {
+    "name": "Michele Parkinson",
+    "gender": "F",
+    "aliases": [
+      "Michelle Parkinson",
+      "Michele Parkinson"
+    ]
+  },
+  "julie-leeming": {
+    "name": "Julie Leeming",
+    "gender": "F",
+    "aliases": [
+      "J. Leeming",
+      "Julie Leeming"
+    ]
+  },
+  "rob-harrison": {
+    "name": "Rob Harrison",
+    "gender": "M",
+    "aliases": [
+      "Rob",
+      "Rob Harrison"
+    ]
+  },
+  "oliver-bramley": {
+    "name": "Oliver Bramley",
+    "gender": "M",
+    "aliases": [
+      "Oliver Bramley"
+    ]
+  },
+  "martin-sykes-jones": {
+    "name": "Martin Sykes-Jones",
+    "gender": "M",
+    "aliases": [
+      "Martin Sykes-Jones"
+    ]
+  },
+  "stephen-adie": {
+    "name": "Stephen Adie",
+    "gender": "M",
+    "aliases": [
+      "Stephen Adie"
+    ]
+  },
+  "lee-moore": {
+    "name": "Lee Moore",
+    "gender": "M",
+    "aliases": [
+      "L. Moore",
+      "Lee Moore"
+    ]
+  },
+  "andy-buckley": {
+    "name": "Andy Buckley",
+    "gender": "M",
+    "aliases": [
+      "A. Buckley",
+      "Andy Buckley"
+    ]
+  },
+  "sandip-pindolia": {
+    "name": "Sandip Pindolia",
+    "gender": "M",
+    "aliases": [
+      "S. Pindolia",
+      "Sandip Pindolia"
+    ]
+  }
+}

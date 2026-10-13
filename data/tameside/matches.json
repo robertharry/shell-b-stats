@@ -1,0 +1,235 @@
+{
+  "_comment": "Scores are [us,them] (Shell A first). games[] in card order: Open A, Ladies, Open B, Mixed A-D, Open C, Open D. lineup.open = men's slots M1-M4 (a lady may fill one). Pairs: Open A/C = M1+M2, Open B/D = M3+M4, Ladies = L1+L2, Mixed A=L1+M1, B=L2+M2, C=L1+M3, D=L2+M4.",
+  "matches": [
+    {
+      "id": "2026-09-23-manchester-edgeley-b",
+      "date": "2026-09-23",
+      "home": true,
+      "opponent": "Manchester Edgeley B",
+      "reported": {
+        "us": 5,
+        "them": 13
+      },
+      "lineup": {
+        "ladies": [
+          "amy-magee",
+          "hannah-stringer"
+        ],
+        "open": [
+          "lee-moore",
+          "julie-leeming",
+          "andy-buckley",
+          "sandip-pindolia"
+        ]
+      },
+      "games": [
+        [
+          [
+            18,
+            21
+          ],
+          [
+            19,
+            21
+          ]
+        ],
+        [
+          [
+            18,
+            21
+          ],
+          [
+            21,
+            19
+          ]
+        ],
+        [
+          [
+            21,
+            17
+          ],
+          [
+            13,
+            21
+          ]
+        ],
+        [
+          [
+            9,
+            21
+          ],
+          [
+            17,
+            21
+          ]
+        ],
+        [
+          [
+            11,
+            21
+          ],
+          [
+            18,
+            21
+          ]
+        ],
+        [
+          [
+            17,
+            21
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            15,
+            21
+          ],
+          [
+            16,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            12
+          ],
+          [
+            21,
+            10
+          ]
+        ],
+        [
+          [
+            20,
+            22
+          ],
+          [
+            5,
+            21
+          ]
+        ]
+      ],
+      "flags": []
+    },
+    {
+      "id": "2026-09-30-hyde-b",
+      "date": "2026-09-30",
+      "home": true,
+      "opponent": "Hyde B",
+      "reported": {
+        "us": 14,
+        "them": 4
+      },
+      "lineup": {
+        "ladies": [
+          "amy-magee",
+          "michele-parkinson"
+        ],
+        "open": [
+          "rob-harrison",
+          "oliver-bramley",
+          "martin-sykes-jones",
+          "stephen-adie"
+        ]
+      },
+      "games": [
+        [
+          [
+            21,
+            15
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        [
+          [
+            21,
+            11
+          ],
+          [
+            21,
+            13
+          ]
+        ],
+        [
+          [
+            21,
+            17
+          ],
+          [
+            11,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            15
+          ],
+          [
+            21,
+            11
+          ]
+        ],
+        [
+          [
+            21,
+            8
+          ],
+          [
+            21,
+            12
+          ]
+        ],
+        [
+          [
+            14,
+            21
+          ],
+          [
+            19,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            13
+          ],
+          [
+            21,
+            18
+          ]
+        ],
+        [
+          [
+            21,
+            10
+          ],
+          [
+            21,
+            10
+          ]
+        ],
+        [
+          [
+            15,
+            21
+          ],
+          [
+            22,
+            20
+          ]
+        ]
+      ],
+      "flags": []
+    }
+  ]
+}
