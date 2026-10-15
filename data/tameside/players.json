@@ -28,7 +28,8 @@
     "gender": "F",
     "aliases": [
       "J. Leeming",
-      "Julie Leeming"
+      "Julie Leeming",
+      "J. Leeman"
     ]
   },
   "rob-harrison": {
@@ -82,6 +83,14 @@
     "aliases": [
       "S. Pindolia",
       "Sandip Pindolia"
+    ]
+  },
+  "anna-wiza": {
+    "name": "Anna Wiza",
+    "gender": "F",
+    "aliases": [
+      "A. Wiza",
+      "Anna Wiza"
     ]
   }
 }

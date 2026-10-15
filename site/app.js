@@ -15,7 +15,7 @@ function expand(matches){
   for(const m of matches){
     const L=m.lineup.ladies,G=m.lineup[C.men];
     m.games.forEach((fx,i)=>{
-      const[d,a,b]=FX[i];
+      const[d,a,b]=((!m.home&&C.fxAway)||FX)[i];
       const pair=d==="ladies"?[L[a],L[b]]:d===C.men?[G[a],G[b]]:[L[a],G[b]];
       fx.forEach(([us,them])=>out.push({m,i,d,pair,us,them}));
     });

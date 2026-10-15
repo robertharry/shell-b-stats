@@ -1,5 +1,5 @@
 {
-  "_comment": "Scores are [us,them] (Shell A first). games[] in card order: Open A, Ladies, Open B, Mixed A-D, Open C, Open D. lineup.open = men's slots M1-M4 (a lady may fill one). Pairs: Open A/C = M1+M2, Open B/D = M3+M4, Ladies = L1+L2, Mixed A=L1+M1, B=L2+M2, C=L1+M3, D=L2+M4.",
+  "_comment": "Scores are [us,them] (Shell A first). games[] in card order: Open A, Ladies, Open B, Mixed A-D, Open C, Open D. lineup.open = men's slots M1-M4 (a lady may fill one). Pairs: Open A/C = M1+M2, Open B/D = M3+M4, Ladies = L1+L2, Mixed A=L1+M1, B=L2+M2, C=L1+M3, D=L2+M4. Away matches: the away team's Open C and Open D pairs are swapped (C = M3+M4, D = M1+M2), handled by fxAway in the page config.",
   "matches": [
     {
       "id": "2026-09-23-manchester-edgeley-b",
@@ -230,6 +230,123 @@
         ]
       ],
       "flags": []
+    },
+    {
+      "id": "2026-10-14-manchester-edgeley-a",
+      "date": "2026-10-14",
+      "home": false,
+      "opponent": "Manchester Edgeley A",
+      "reported": {
+        "us": 6,
+        "them": 12
+      },
+      "lineup": {
+        "ladies": [
+          "julie-leeming",
+          "anna-wiza"
+        ],
+        "open": [
+          "lee-moore",
+          "oliver-bramley",
+          "rob-harrison",
+          "andy-buckley"
+        ]
+      },
+      "games": [
+        [
+          [
+            15,
+            21
+          ],
+          [
+            8,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            17
+          ],
+          [
+            18,
+            21
+          ]
+        ],
+        [
+          [
+            19,
+            21
+          ],
+          [
+            21,
+            14
+          ]
+        ],
+        [
+          [
+            12,
+            21
+          ],
+          [
+            21,
+            17
+          ]
+        ],
+        [
+          [
+            19,
+            21
+          ],
+          [
+            19,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            17
+          ],
+          [
+            10,
+            21
+          ]
+        ],
+        [
+          [
+            12,
+            21
+          ],
+          [
+            12,
+            21
+          ]
+        ],
+        [
+          [
+            10,
+            21
+          ],
+          [
+            13,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            15
+          ],
+          [
+            21,
+            19
+          ]
+        ]
+      ],
+      "flags": [
+        "Mixed C game 1 home score overwritten; read as 17"
+      ]
     }
   ]
 }
