@@ -2,7 +2,6 @@
   "season": "2026-27",
   "division": "Division 1",
   "source": "https://tameside-badminton.co.uk/results/Division%201",
-  "note": "Lewis Shield ties are not listed.",
   "fixtures": [
     {
       "date": "2026-09-23",
@@ -35,6 +34,11 @@
       "opponent": "GHAP B"
     },
     {
+      "date": "2027-01-07",
+      "home": false,
+      "opponent": "College Green A"
+    },
+    {
       "date": "2027-01-20",
       "home": true,
       "opponent": "College Green A"
@@ -60,9 +64,24 @@
       "opponent": "GHAP A"
     },
     {
+      "date": "2027-03-03",
+      "home": false,
+      "opponent": "Hyde A"
+    },
+    {
+      "date": "2027-03-21",
+      "home": false,
+      "opponent": "Syddal Park A"
+    },
+    {
       "date": "2027-04-05",
       "home": false,
       "opponent": "Manchester Edgeley B"
+    },
+    {
+      "date": "2027-04-13",
+      "home": false,
+      "opponent": "GHAP A"
     }
   ]
 }
