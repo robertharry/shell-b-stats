@@ -112,14 +112,16 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));
   ["players","pairs","matches","fixtures","league"].forEach(id=>$("#"+id).hidden=id!==b.dataset.t);
 });
-function bare(f){
+function bare(f,l){
   const msg='<p class="note">No score sheets have been added for this team, so there are no player stats.</p>';
   ["players","pairs","matches"].forEach(id=>$("#"+id).innerHTML=msg);
-  const rs=(f?.fixtures||[]).filter(x=>x.result),t=blank(),r={W:0,L:0,D:0};
-  rs.forEach(x=>{add(t,x.result);r[x.result.us>x.result.them?"W":x.result.us<x.result.them?"L":"D"]++});
-  $("#summary").innerHTML=`<div><span class="num"><span class="w">${r.W}</span>-<span class="l">${r.L}</span>${r.D?`-${r.D}`:""}</span><small>Matches won-lost${r.D?"-drawn":""}</small></div><div><span class="num"><span class="w">${t.w}</span>-<span class="l">${t.l}</span></span><small>Games won-lost</small></div>`;
+  const rs=(f?.fixtures||[]).filter(x=>x.result),r={W:0,L:0,D:0};
+  rs.forEach(x=>{r[x.result.us>x.result.them?"W":x.result.us<x.result.them?"L":"D"]++});
+  const rows=l?.divisions?.[C.division||"Division 1"],team=rows?.find(x=>x.team===C.team);
+  $("#summary").innerHTML=`<div><span class="num"><span class="w">${r.W}</span>-<span class="l">${r.L}</span>${r.D?`-${r.D}`:""}</span><small>Matches won-lost${r.D?"-drawn":""}</small></div>`+
+    (team?`<div><span class="num"><span class="w">${team.w}</span>-<span class="l">${team.l}</span></span><small>Games won-lost (league table)</small></div>`:"");
 }
 const opt=(f,d)=>load(f,d).catch(()=>null),bareMode=C.scores===false;
 Promise.all([bareMode?null:load("matches.json"),bareMode?null:load("players.json"),opt("fixtures.json"),opt("league.json",C.leagueDir)])
-  .then(([m,p,f,l])=>{bareMode?bare(f):render(m.matches,p);fixtures(m?.matches||[],f);league(l,f?.fixtures.length||14)})
+  .then(([m,p,f,l])=>{bareMode?bare(f,l):render(m.matches,p);fixtures(m?.matches||[],f);league(l,f?.fixtures.length||14)})
   .catch(e=>$("#err").textContent=e.message);
