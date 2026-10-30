@@ -33,6 +33,12 @@ jobs:
       - name: Refresh Stockport league table
         continue-on-error: true
         run: node tools/fetch-league.mjs https://stockport-badminton.co.uk/tables/All _site/data/stockport/league.json
+      - name: Refresh Shell A fixtures
+        continue-on-error: true
+        run: node tools/fetch-fixtures.mjs https://stockport-badminton.co.uk/results/Premier "Shell A" Premier _site/data/stockport-a/fixtures.json
+      - name: Refresh Shell C fixtures
+        continue-on-error: true
+        run: node tools/fetch-fixtures.mjs https://stockport-badminton.co.uk/results/Division-2 "Shell C" "Division 2" _site/data/stockport-c/fixtures.json
       - name: Refresh Tameside league table
         continue-on-error: true
         run: node tools/fetch-league.mjs https://tameside-badminton.co.uk/tables/All _site/data/tameside/league.json

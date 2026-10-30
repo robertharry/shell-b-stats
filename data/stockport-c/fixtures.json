@@ -1,0 +1,97 @@
+{
+  "season": "2026-27",
+  "division": "Division 2",
+  "source": "https://stockport-badminton.co.uk/results/Division-2",
+  "fixtures": [
+    {
+      "date": "2026-09-15",
+      "home": false,
+      "opponent": "Aerospace A",
+      "map": "https://maps.app.goo.gl/ax4pDDKhZBtLnKT87",
+      "result": {
+        "us": 10,
+        "them": 8
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "home": false,
+      "opponent": "College Green C",
+      "map": "https://goo.gl/maps/8kJEDL7aW2NbM2vr8",
+      "result": {
+        "us": 10,
+        "them": 8
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "home": true,
+      "opponent": "Dome B",
+      "result": {
+        "us": 7,
+        "them": 11
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "home": false,
+      "opponent": "Mellor A",
+      "map": "https://goo.gl/maps/kC6bEqsZ4542",
+      "status": "Awaiting Result"
+    },
+    {
+      "date": "2026-11-11",
+      "home": true,
+      "opponent": "Manor A"
+    },
+    {
+      "date": "2026-12-09",
+      "home": false,
+      "opponent": "Dome B",
+      "map": "https://goo.gl/maps/HjMZA88noFF2"
+    },
+    {
+      "date": "2026-12-16",
+      "home": true,
+      "opponent": "Alderley Park C"
+    },
+    {
+      "date": "2027-01-27",
+      "home": true,
+      "opponent": "Parrswood B"
+    },
+    {
+      "date": "2027-02-02",
+      "home": false,
+      "opponent": "Manor A",
+      "map": "https://goo.gl/maps/HsDPHYgS67DbyPHH9"
+    },
+    {
+      "date": "2027-03-03",
+      "home": true,
+      "opponent": "Aerospace A"
+    },
+    {
+      "date": "2027-03-09",
+      "home": false,
+      "opponent": "Parrswood B",
+      "map": "https://goo.gl/maps/3qRUW35DYRK2"
+    },
+    {
+      "date": "2027-03-17",
+      "home": false,
+      "opponent": "Alderley Park C",
+      "map": "https://maps.app.goo.gl/jxYfweGPAcS1fEaH8"
+    },
+    {
+      "date": "2027-04-07",
+      "home": true,
+      "opponent": "Mellor A"
+    },
+    {
+      "date": "2027-04-28",
+      "home": true,
+      "opponent": "College Green C"
+    }
+  ]
+}

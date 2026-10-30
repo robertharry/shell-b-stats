@@ -2,7 +2,7 @@
 const C=window.CFG,FX=C.fx,cap=s=>s[0].toUpperCase()+s.slice(1);
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-async function load(f){for(const b of["data/"+C.dir+"/","../data/"+C.dir+"/"]){try{const r=await fetch(b+f);if(r.ok)return r.json()}catch{}}throw new Error("Could not load "+f+". Serve the repo root with a local web server (e.g. npx serve .) and open /site/.")}
+async function load(f,d=C.dir){for(const b of["data/"+d+"/","../data/"+d+"/"]){try{const r=await fetch(b+f);if(r.ok)return r.json()}catch{}}throw new Error("Could not load "+f+". Serve the repo root with a local web server (e.g. npx serve .) and open /site/.")}
 const blank=()=>({w:0,l:0,pf:0,pa:0});
 const add=(s,g)=>{g.us>g.them?s.w++:s.l++;s.pf+=g.us;s.pa+=g.them};
 const pct=s=>s.w+s.l?s.w/(s.w+s.l):0;
@@ -42,10 +42,10 @@ function render(matches,P){
   const slot=id=>{if(!pl.has(id))pl.set(id,{all:blank(),[C.men]:blank(),ladies:blank(),mixed:blank(),ms:new Set()});return pl.get(id)};
   games.forEach(g=>g.pair.forEach(id=>{const p=slot(id);add(p.all,g);add(p[g.d],g);p.ms.add(g.m.id)}));
   const rows=[...pl].sort((a,b)=>pct(b[1].all)-pct(a[1].all)||b[1].all.w-a[1].all.w);
-  const draw=()=>{const core=$("#coreOnly").checked;$("#ptable").innerHTML=`<div class="scroll"><table><thead><tr><th>Player</th><th>Matches</th><th>Games</th><th>Win %</th><th>Points +/-</th><th>${cap(C.men)}</th><th>Ladies</th><th>Mixed</th></tr></thead><tbody>`+
-    rows.filter(([id])=>!core||P[id]?.core).map(([id,p])=>`<tr><td>${esc(name(id))}</td><td>${p.ms.size}</td><td>${wl(p.all)}</td><td>${bar(p.all)}</td><td>${diff(p.all)}</td><td>${wl(p[C.men])}</td><td>${wl(p.ladies)}</td><td>${wl(p.mixed)}</td></tr>`).join("")+
-    `</tbody></table></div><p class="note">Games won-lost across all fixtures. The last three columns show games won-lost in that discipline.${core?" The core-player view only hides rows; no stats change.":""}</p>`};
-  $("#coreOnly").onchange=draw;draw();
+  const draw=()=>{const all=$("#showAll").checked,hasCore=Object.values(P).some(p=>p.core),min=C.minMatches||3,vis=([id,p])=>all||!hasCore||P[id]?.core||p.ms.size>=min;$("#ptable").innerHTML=`<div class="scroll"><table><thead><tr><th>Player</th><th>Matches</th><th>Games</th><th>Win %</th><th>Points +/-</th><th>${cap(C.men)}</th><th>Ladies</th><th>Mixed</th></tr></thead><tbody>`+
+    rows.filter(vis).map(([id,p])=>`<tr><td>${esc(name(id))}</td><td>${p.ms.size}</td><td>${wl(p.all)}</td><td>${bar(p.all)}</td><td>${diff(p.all)}</td><td>${wl(p[C.men])}</td><td>${wl(p.ladies)}</td><td>${wl(p.mixed)}</td></tr>`).join("")+
+    `</tbody></table></div><p class="note">Games won-lost across all fixtures. The last three columns show games won-lost in that discipline.${hasCore&&!all?` Showing core players and anyone with ${min}+ matches; tick Show all for everyone. Hidden players' stats are unchanged.`:""}</p>`};
+  $("#showAll").onchange=draw;draw();
 
   // pairs
   const pr=new Map();
@@ -71,12 +71,14 @@ function fixtures(matches,f){
   if(!f){el.innerHTML='<p class="note">Fixtures unavailable.</p>';return}
   const res=new Map(matches.map(m=>[m.opponent+"|"+m.home,m]));
   const today=new Date().toISOString().slice(0,10);
-  const next=f.fixtures.find(x=>x.date>=today&&!res.has(x.opponent+"|"+x.home));
+  const rs=x=>{const m=res.get(x.opponent+"|"+x.home);return m?m.reported:x.result||null};
+  const next=f.fixtures.find(x=>x.date>=today&&!rs(x));
   el.innerHTML=`<div class="scroll"><table><thead><tr><th>Date</th><th>Opponent</th><th>Venue</th><th>Result</th></tr></thead><tbody>`+
-    f.fixtures.map(x=>{const m=res.get(x.opponent+"|"+x.home);
+    f.fixtures.map(x=>{const q=rs(x);
       const d=new Date(x.date).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
       const venue=x.home?"Home":x.map?`<a href="${esc(x.map)}" target="_blank" rel="noopener">Away</a>`:"Away";
-      const r=m?`<span class="${m.reported.us>m.reported.them?"rw":"rl"}">${m.reported.us}-${m.reported.them}</span>`:x===next?"Next":"";
+      const st=x.status?esc(x.status):"";
+      const r=q?`<span class="${q.us>q.them?"rw":q.us<q.them?"rl":""}">${q.us}-${q.them}</span>`:x===next?"Next"+(st?" · "+st:""):st;
       return `<tr class="${x===next?"hl":""}"><td>${d}</td><td>${esc(x.opponent)}</td><td>${venue}</td><td>${r}</td></tr>`}).join("")+
     `</tbody></table></div><p class="note">${esc(f.division)}, ${esc(f.season)}. Fixtures as published by the league.${f.note?" "+esc(f.note):""}</p>`;
 }
@@ -89,12 +91,12 @@ function projection(rows,n,me){
   return{proj,mine,line,need,left,per:left?(need-mine.now)/left:0,avg:rows.find(r=>r.team===me).avg};
 }
 function league(l,n){
-  const el=$("#league"),rows=l?.divisions?.["Division 1"];
+  const el=$("#league"),rows=l?.divisions?.[C.division||"Division 1"];
   if(!rows){el.innerHTML='<p class="note">League table unavailable right now.</p>';return}
   const ME=C.team,pj=C.promo&&rows.some(r=>r.team===ME)&&rows.some(r=>r.p>0)?projection(rows,n,ME):null;
   let html=`<div class="scroll"><table><thead><tr><th>Team</th><th>P</th><th>W</th><th>L</th><th>Avg</th></tr></thead><tbody>`+
     rows.map(r=>`<tr class="${r.team===ME?"hl":""}"><td>${esc(r.team)}</td><td>${r.p}</td><td>${r.w}</td><td>${r.l}</td><td>${r.avg}</td></tr>`).join("")+
-    `</tbody></table></div><p class="note">Division 1 as published by the league: W and L are games, Avg is games won per match. Refreshed ${new Date(l.updated).toLocaleString("en-GB")}.</p>`;
+    `</tbody></table></div><p class="note">${C.division||"Division 1"} as published by the league: W and L are games, Avg is games won per match. Refreshed ${new Date(l.updated).toLocaleString("en-GB")}.</p>`;
   if(pj){
     const max=Math.max(...pj.proj.map(x=>x.final),pj.need),pc=v=>(v/max*100).toFixed(1)+"%";
     const verdict=pj.left===0?"The season is complete.":pj.per>18?"Second place is out of reach if everyone keeps their current averages.":
@@ -110,7 +112,14 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));
   ["players","pairs","matches","fixtures","league"].forEach(id=>$("#"+id).hidden=id!==b.dataset.t);
 });
-const opt=f=>load(f).catch(()=>null);
-Promise.all([load("matches.json"),load("players.json"),opt("fixtures.json"),opt("league.json")])
-  .then(([m,p,f,l])=>{render(m.matches,p);fixtures(m.matches,f);league(l,f?.fixtures.length||14)})
+function bare(f){
+  const msg='<p class="note">No score sheets have been added for this team, so there are no player stats.</p>';
+  ["players","pairs","matches"].forEach(id=>$("#"+id).innerHTML=msg);
+  const rs=(f?.fixtures||[]).filter(x=>x.result),t=blank(),r={W:0,L:0,D:0};
+  rs.forEach(x=>{add(t,x.result);r[x.result.us>x.result.them?"W":x.result.us<x.result.them?"L":"D"]++});
+  $("#summary").innerHTML=`<div><span class="num"><span class="w">${r.W}</span>-<span class="l">${r.L}</span>${r.D?`-${r.D}`:""}</span><small>Matches won-lost${r.D?"-drawn":""}</small></div><div><span class="num"><span class="w">${t.w}</span>-<span class="l">${t.l}</span></span><small>Games won-lost</small></div>`;
+}
+const opt=(f,d)=>load(f,d).catch(()=>null),bareMode=C.scores===false;
+Promise.all([bareMode?null:load("matches.json"),bareMode?null:load("players.json"),opt("fixtures.json"),opt("league.json",C.leagueDir)])
+  .then(([m,p,f,l])=>{bareMode?bare(f):render(m.matches,p);fixtures(m?.matches||[],f);league(l,f?.fixtures.length||14)})
   .catch(e=>$("#err").textContent=e.message);

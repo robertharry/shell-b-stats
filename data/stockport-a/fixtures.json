@@ -1,0 +1,99 @@
+{
+  "season": "2026-27",
+  "division": "Premier",
+  "source": "https://stockport-badminton.co.uk/results/Premier",
+  "fixtures": [
+    {
+      "date": "2026-10-11",
+      "home": false,
+      "opponent": "Syddal Park A",
+      "map": "https://maps.app.goo.gl/ax4pDDKhZBtLnKT87",
+      "result": {
+        "us": 10,
+        "them": 8
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "home": true,
+      "opponent": "Racketeers B"
+    },
+    {
+      "date": "2026-12-08",
+      "home": false,
+      "opponent": "GHAP A",
+      "map": "https://goo.gl/maps/VTrEC5axjxo"
+    },
+    {
+      "date": "2026-12-17",
+      "home": false,
+      "opponent": "College Green A",
+      "map": "https://goo.gl/maps/8kJEDL7aW2NbM2vr8"
+    },
+    {
+      "date": "2027-01-06",
+      "home": true,
+      "opponent": "David Lloyd A"
+    },
+    {
+      "date": "2027-01-15",
+      "home": false,
+      "opponent": "David Lloyd A",
+      "map": "https://goo.gl/maps/DVqnh4M3rrYD8fUs9"
+    },
+    {
+      "date": "2027-01-19",
+      "home": false,
+      "opponent": "Alderley Park A",
+      "map": "https://maps.app.goo.gl/jxYfweGPAcS1fEaH8"
+    },
+    {
+      "date": "2027-01-27",
+      "home": false,
+      "opponent": "Featherforce A",
+      "map": "https://maps.app.goo.gl/xL85FF5QtPLFWjMm9"
+    },
+    {
+      "date": "2027-02-03",
+      "home": true,
+      "opponent": "College Green A"
+    },
+    {
+      "date": "2027-02-08",
+      "home": false,
+      "opponent": "Racketeers B",
+      "map": "https://goo.gl/maps/4SqzfcYdjz72"
+    },
+    {
+      "date": "2027-02-10",
+      "home": true,
+      "opponent": "Racketeers A"
+    },
+    {
+      "date": "2027-02-22",
+      "home": false,
+      "opponent": "Racketeers A",
+      "map": "https://goo.gl/maps/4SqzfcYdjz72"
+    },
+    {
+      "date": "2027-03-03",
+      "home": true,
+      "opponent": "Featherforce A"
+    },
+    {
+      "date": "2027-03-17",
+      "home": true,
+      "opponent": "Syddal Park A"
+    },
+    {
+      "date": "2027-03-24",
+      "home": true,
+      "opponent": "Alderley Park A"
+    },
+    {
+      "date": "2027-04-14",
+      "home": true,
+      "opponent": "GHAP A"
+    }
+  ]
+}

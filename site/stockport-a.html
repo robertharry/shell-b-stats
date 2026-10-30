@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-GB" data-theme="stockport-a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shell A – Stockport stats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="leagues">
+  <a href="stockport-a.html" data-l="stockport-a" aria-current="page">Stockport A</a>
+  <a href="./" data-l="stockport">Stockport B</a>
+  <a href="stockport-c.html" data-l="stockport-c">Stockport C</a>
+  <a href="tameside.html" data-l="tameside">Tameside</a>
+</div>
+<main>
+<h1>Shell A</h1>
+<p class="sub">Stockport &amp; District Badminton League · Premier</p>
+<div id="err"></div>
+<div class="summary" id="summary"></div>
+<nav role="tablist" aria-label="Views">
+  <button role="tab" aria-selected="true" data-t="players">Players</button>
+  <button role="tab" aria-selected="false" data-t="pairs">Pairs</button>
+  <button role="tab" aria-selected="false" data-t="matches">Matches</button>
+  <button role="tab" aria-selected="false" data-t="fixtures">Fixtures</button>
+  <button role="tab" aria-selected="false" data-t="league">League</button>
+</nav>
+<section id="players"><label class="tog" id="coreLabel"><input type="checkbox" id="showAll"> Show all</label><div id="ptable"></div></section>
+<section id="pairs" hidden></section>
+<section id="matches" hidden></section>
+<section id="fixtures" hidden></section>
+<section id="league" hidden></section>
+</main>
+<script>window.CFG={"dir":"stockport-a","team":"Shell A","men":"gents","promo":false,"fx":[["gents",0,1],["ladies",0,1],["gents",0,2],["ladies",0,2],["gents",1,2],["ladies",1,2],["mixed",0,0],["mixed",1,1],["mixed",2,2]],"leagueDir":"stockport","division":"Premier","scores":false};</script>
+<script src="app.js"></script>
+</body>
+</html>

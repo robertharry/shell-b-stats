@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 const root = new URL("../data/", import.meta.url);
 const validGame = ([a, b]) => {
   const hi = Math.max(a, b), lo = Math.min(a, b);
@@ -8,6 +8,7 @@ const validGame = ([a, b]) => {
 };
 let bad = 0;
 for (const dir of readdirSync(root).filter(d => statSync(new URL(d + "/", root)).isDirectory())) {
+  if (!existsSync(new URL(`${dir}/matches.json`, root))) continue; // fixtures/league only
   const read = f => JSON.parse(readFileSync(new URL(`${dir}/${f}`, root)));
   const { matches } = read("matches.json"), players = read("players.json");
   console.log(`[${dir}]`);

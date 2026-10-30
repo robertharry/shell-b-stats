@@ -1,16 +1,187 @@
 {
-  "updated": "2026-10-12T12:00:00Z",
+  "updated": "2026-10-28T12:00:00Z",
   "source": "https://stockport-badminton.co.uk/tables/All",
   "divisions": {
+    "Premier": [
+      {
+        "team": "GHAP A",
+        "p": 4,
+        "w": 44,
+        "l": 28,
+        "avg": 11
+      },
+      {
+        "team": "Racketeers B",
+        "p": 4,
+        "w": 41,
+        "l": 31,
+        "avg": 10.3
+      },
+      {
+        "team": "Featherforce A",
+        "p": 4,
+        "w": 39,
+        "l": 33,
+        "avg": 9.8
+      },
+      {
+        "team": "Racketeers A",
+        "p": 2,
+        "w": 26,
+        "l": 10,
+        "avg": 13
+      },
+      {
+        "team": "Alderley Park A",
+        "p": 3,
+        "w": 23,
+        "l": 31,
+        "avg": 7.7
+      },
+      {
+        "team": "Shell A",
+        "p": 1,
+        "w": 10,
+        "l": 8,
+        "avg": 10
+      },
+      {
+        "team": "Syddal Park A",
+        "p": 1,
+        "w": 8,
+        "l": 10,
+        "avg": 8
+      },
+      {
+        "team": "David Lloyd A",
+        "p": 2,
+        "w": 4,
+        "l": 32,
+        "avg": 2
+      },
+      {
+        "team": "College Green A",
+        "p": 1,
+        "w": 3,
+        "l": 15,
+        "avg": 3
+      }
+    ],
     "Division 1": [
-      { "team": "Parrswood A", "p": 0, "w": 0, "l": 0, "avg": 0 },
-      { "team": "Featherforce B", "p": 3, "w": 39, "l": 15, "avg": 13 },
-      { "team": "Shell B", "p": 3, "w": 29, "l": 25, "avg": 9.7 },
-      { "team": "Macclesfield A", "p": 2, "w": 23, "l": 13, "avg": 11.5 },
-      { "team": "Remnants A", "p": 2, "w": 18, "l": 18, "avg": 9 },
-      { "team": "College Green B", "p": 1, "w": 15, "l": 3, "avg": 15 },
-      { "team": "Alderley Park B", "p": 3, "w": 13, "l": 41, "avg": 4.3 },
-      { "team": "Syddal Park B", "p": 2, "w": 7, "l": 29, "avg": 3.5 }
+      {
+        "team": "Parrswood A",
+        "p": 0,
+        "w": 0,
+        "l": 0,
+        "avg": 0
+      },
+      {
+        "team": "Featherforce B",
+        "p": 4,
+        "w": 50,
+        "l": 22,
+        "avg": 12.5
+      },
+      {
+        "team": "Shell B",
+        "p": 4,
+        "w": 41,
+        "l": 31,
+        "avg": 10.3
+      },
+      {
+        "team": "Macclesfield A",
+        "p": 3,
+        "w": 36,
+        "l": 18,
+        "avg": 12
+      },
+      {
+        "team": "Remnants A",
+        "p": 3,
+        "w": 23,
+        "l": 31,
+        "avg": 7.7
+      },
+      {
+        "team": "Alderley Park B",
+        "p": 4,
+        "w": 19,
+        "l": 53,
+        "avg": 4.8
+      },
+      {
+        "team": "College Green B",
+        "p": 1,
+        "w": 15,
+        "l": 3,
+        "avg": 15
+      },
+      {
+        "team": "Syddal Park B",
+        "p": 3,
+        "w": 14,
+        "l": 40,
+        "avg": 4.7
+      }
+    ],
+    "Division 2": [
+      {
+        "team": "Manor A",
+        "p": 0,
+        "w": 0,
+        "l": 0,
+        "avg": 0
+      },
+      {
+        "team": "Aerospace A",
+        "p": 5,
+        "w": 59,
+        "l": 31,
+        "avg": 11.8
+      },
+      {
+        "team": "Mellor A",
+        "p": 3,
+        "w": 30,
+        "l": 24,
+        "avg": 10
+      },
+      {
+        "team": "Shell C",
+        "p": 3,
+        "w": 27,
+        "l": 27,
+        "avg": 9
+      },
+      {
+        "team": "Dome B",
+        "p": 3,
+        "w": 22,
+        "l": 32,
+        "avg": 7.3
+      },
+      {
+        "team": "College Green C",
+        "p": 2,
+        "w": 15,
+        "l": 21,
+        "avg": 7.5
+      },
+      {
+        "team": "Alderley Park C",
+        "p": 1,
+        "w": 7,
+        "l": 11,
+        "avg": 7
+      },
+      {
+        "team": "Parrswood B",
+        "p": 1,
+        "w": 2,
+        "l": 16,
+        "avg": 2
+      }
     ]
   }
 }

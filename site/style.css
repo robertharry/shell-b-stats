@@ -52,7 +52,12 @@ html[data-theme=tameside]{--accent:#c2410c;--bg:#f7efe9;--ink:#2b1a14;--mute:#7a
 @media (prefers-color-scheme:dark){html[data-theme=tameside]{--accent:#f08a4b;--bg:#1f1410;--panel:#2a1b15;--ink:#f1e6df;--mute:#b59d92;--line:#4a3228}}
 .leagues{display:flex;flex-wrap:wrap;background:var(--panel);border-bottom:4px solid var(--accent)}
 .leagues a{padding:12px 20px;font-weight:600;text-decoration:none;color:var(--ink);border-bottom:4px solid transparent;margin-bottom:-4px}
-.leagues a[data-l=stockport]{--c:#1f7a5c}.leagues a[data-l=tameside]{--c:#c2410c}
+.leagues a[data-l=stockport-a]{--c:#1d5fbf}.leagues a[data-l=stockport]{--c:#1f7a5c}.leagues a[data-l=stockport-c]{--c:#e0b100;--t:#1a1a1a}.leagues a[data-l=tameside]{--c:#c2410c}
 .leagues a:not([aria-current]){border-bottom-color:var(--c)}
-.leagues a[aria-current]{background:var(--c);color:#fff}
+.leagues a[aria-current]{background:var(--c);color:var(--t,#fff)}
 [hidden]{display:none!important}
+html[data-theme=stockport-a]{--accent:#1d5fbf;--bg:#edf1f8;--ink:#14202e;--mute:#5b6b80;--line:#c8d3e3}
+html[data-theme=stockport-c]{--accent:#9a7200;--bg:#f8f3df;--ink:#2a2410;--mute:#766b45;--line:#e0d6a8}
+@media (prefers-color-scheme:dark){
+html[data-theme=stockport-a]{--accent:#6aa5f5;--bg:#0f1722;--panel:#162231;--ink:#e6ecf5;--mute:#93a3b8;--line:#2a3a50}
+html[data-theme=stockport-c]{--accent:#f2c94c;--bg:#1e1a0e;--panel:#2a2412;--ink:#f3eed9;--mute:#b8ad84;--line:#4a4122}}
