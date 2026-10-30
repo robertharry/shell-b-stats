@@ -32,7 +32,7 @@ jobs:
           cp -r data _site/data
       - name: Refresh Stockport league table
         continue-on-error: true
-        run: node tools/fetch-league.mjs https://stockport-badminton.co.uk/tables/All _site/data/stockport/league.json
+        run: node tools/fetch-league.mjs https://stockport-badminton.co.uk/tables/All _site/data/stockport-b/league.json
       - name: Refresh Shell A fixtures
         continue-on-error: true
         run: node tools/fetch-fixtures.mjs https://stockport-badminton.co.uk/results/Premier "Shell A" Premier _site/data/stockport-a/fixtures.json
