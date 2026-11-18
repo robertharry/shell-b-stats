@@ -13,10 +13,10 @@ const diff=s=>{const d=s.pf-s.pa;return(d>0?"+":"")+d};
 function expand(matches){
   const out=[];
   for(const m of matches){
-    const L=m.lineup.ladies,G=m.lineup[C.men];
+    const L=m.lineup.ladies,G=m.lineup[C.men],MX=m.lineup.mixed||{},LM=MX.ladies||L,GM=MX[C.men]||G;
     m.games.forEach((fx,i)=>{
       const[d,a,b]=((!m.home&&C.fxAway)||FX)[i];
-      const pair=d==="ladies"?[L[a],L[b]]:d===C.men?[G[a],G[b]]:[L[a],G[b]];
+      const pair=d==="ladies"?[L[a],L[b]]:d===C.men?[G[a],G[b]]:[LM[a],GM[b]];
       fx.forEach(([us,them])=>out.push({m,i,d,pair,us,them}));
     });
   }
