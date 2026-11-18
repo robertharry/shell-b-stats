@@ -1,5 +1,5 @@
 {
-  "_comment": "Scores are always [us, them] (Shell B first), regardless of home/away on the card. games[] is in card order: G1&2, L1&2, G1&3, L1&3, G2&3, L2&3, Mixed1, Mixed2, Mixed3. Pairs are derived from lineup (playing order): gents/ladies pair by position; mixed N = ladies[N-1] + gents[N-1].",
+  "_comment": "Scores are always [us, them] (Shell B first), regardless of home/away on the card. games[] is in card order: G1&2, L1&2, G1&3, L1&3, G2&3, L2&3, Mixed1, Mixed2, Mixed3. lineup.ladies/gents are in card order (the number on the left); gents/ladies rubbers pair by position. Mixed N = ladies[N-1] + gents[N-1], unless lineup.mixed.gents and/or lineup.mixed.ladies is given (the circled-number order on the card, for whichever side has circles), in which case mixed N uses those orders instead.",
   "matches": [
     {
       "id": "2026-09-17-featherforce-b",
@@ -17,10 +17,17 @@
           "nicola-hill"
         ],
         "gents": [
-          "rob-harrison",
           "oliver-bramley",
+          "rob-harrison",
           "darren-gilberthorpe"
-        ]
+        ],
+        "mixed": {
+          "gents": [
+            "rob-harrison",
+            "oliver-bramley",
+            "darren-gilberthorpe"
+          ]
+        }
       },
       "games": [
         [
@@ -127,15 +134,22 @@
       },
       "lineup": {
         "ladies": [
-          "michele-parkinson",
           "amy-magee",
+          "michele-parkinson",
           "hannah-stringer"
         ],
         "gents": [
           "oliver-bramley",
           "rob-harrison",
           "darren-gilberthorpe"
-        ]
+        ],
+        "mixed": {
+          "ladies": [
+            "michele-parkinson",
+            "amy-magee",
+            "hannah-stringer"
+          ]
+        }
       },
       "games": [
         [
@@ -362,10 +376,17 @@
           "hannah-stringer"
         ],
         "gents": [
-          "rob-harrison",
           "oliver-bramley",
+          "rob-harrison",
           "darren-gilberthorpe"
-        ]
+        ],
+        "mixed": {
+          "gents": [
+            "rob-harrison",
+            "oliver-bramley",
+            "darren-gilberthorpe"
+          ]
+        }
       },
       "games": [
         [
@@ -571,6 +592,128 @@
           [
             16,
             21
+          ]
+        ]
+      ],
+      "flags": []
+    },
+    {
+      "id": "2026-11-17-parrswood-a",
+      "date": "2026-11-17",
+      "home": false,
+      "opponent": "Parrswood A",
+      "reported": {
+        "us": 11,
+        "them": 7
+      },
+      "lineup": {
+        "ladies": [
+          "amy-magee",
+          "michele-parkinson",
+          "hannah-stringer"
+        ],
+        "gents": [
+          "oliver-bramley",
+          "rob-harrison",
+          "andy-buckley"
+        ],
+        "mixed": {
+          "gents": [
+            "rob-harrison",
+            "oliver-bramley",
+            "andy-buckley"
+          ]
+        }
+      },
+      "games": [
+        [
+          [
+            21,
+            14
+          ],
+          [
+            21,
+            11
+          ]
+        ],
+        [
+          [
+            14,
+            21
+          ],
+          [
+            10,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            11
+          ],
+          [
+            21,
+            13
+          ]
+        ],
+        [
+          [
+            10,
+            21
+          ],
+          [
+            19,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            15
+          ],
+          [
+            21,
+            12
+          ]
+        ],
+        [
+          [
+            21,
+            16
+          ],
+          [
+            21,
+            14
+          ]
+        ],
+        [
+          [
+            4,
+            21
+          ],
+          [
+            13,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            14
+          ],
+          [
+            15,
+            21
+          ]
+        ],
+        [
+          [
+            21,
+            19
+          ],
+          [
+            21,
+            19
           ]
         ]
       ],
