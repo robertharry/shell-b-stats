@@ -14,7 +14,15 @@ for (const dir of readdirSync(root).filter(d => statSync(new URL(d + "/", root))
   console.log(`[${dir}]`);
   for (const m of matches) {
     const errs = [];
-    Object.values(m.lineup).flat().forEach(p => { if (!players[p]) errs.push(`unknown player ${p}`); });
+    const chk = p => { if (!players[p]) errs.push(`unknown player ${p}`); };
+    for (const [k, v] of Object.entries(m.lineup)) if (k !== "mixed") v.forEach(chk);
+    // optional circled-number order for the mixed: lineup.mixed.gents / .ladies, a reordering of the same players
+    for (const [k, v] of Object.entries(m.lineup.mixed || {})) {
+      v.forEach(chk);
+      const base = m.lineup[k];
+      if (!Array.isArray(base) || [...v].sort().join() !== [...base].sort().join())
+        errs.push(`lineup.mixed.${k} must contain the same players as lineup.${k}`);
+    }
     if (m.games.length !== 9) errs.push(`expected 9 fixtures, got ${m.games.length}`);
     let us = 0, them = 0;
     m.games.forEach((fx, i) => {
